@@ -1,0 +1,120 @@
+<div class="container my-5">
+  <div class="card">
+    <div class="card-body">
+      <h1 class="text-center my-1">Practica web con Angular</h1>
+      <h4 class="text-center my-2 text-muted">Crud de libros</h4>
+      <form (ngSubmit)="onSubmit()" class="mb-2" ngNativeValidate>
+        <div class="row">
+          <div class="col-6">
+            <input
+              [(ngModel)]="libro.titulo"
+              name="titulo"
+              placeholder="Título"
+              type="text"
+              required
+              class="form-control"
+            />
+          </div>
+          <div class="col-6">
+            <input
+              placeholder="Categoría"
+              type="text"
+              required
+              class="form-control"
+              [(ngModel)]="libro.categoria"
+              name="categoria"
+            />
+          </div>
+        </div>
+
+        <div class="row mt-1">
+          <div class="col-6">
+            <input
+              [(ngModel)]="libro.numPaginas"
+              name="numPaginas"
+              placeholder="Numero de páginas"
+              type="number"
+              required
+              min="1"
+              class="form-control"
+            />
+          </div>
+          <div class="col-6">
+            <input
+              [(ngModel)]="libro.isbn"
+              name="isbn"
+              placeholder="ISBN"
+              type="text"
+              required
+              class="form-control"
+            />
+          </div>
+        </div>
+
+        <div class="row mt-1">
+          <div class="col-6">
+            <input
+              [(ngModel)]="libro.autor"
+              name="autor"
+              placeholder="Autor"
+              type="text"
+              required
+              class="form-control"
+            />
+          </div>
+          <div class="col-6">
+            <input
+              [(ngModel)]="libro.editorial"
+              name="editorial"
+              placeholder="Editorial"
+              type="text"
+              required
+              class="form-control"
+            />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-info text-white my-2">
+          Guardar
+        </button>
+      </form>
+
+      <div>
+        <table class="table table-hover table-responsive">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Título</th>
+              <th scope="col">Categoría</th>
+              <th scope="col">N. páginas</th>
+              <th scope="col">ISBN</th>
+              <th scope="col">Autor</th>
+              <th scope="col">Editorial</th>
+              <th scope="col">Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let libro of libros">
+              <th scope="row">1</th>
+              <td>{{ libro.titulo }}</td>
+              <td>{{ libro.categoria }}</td>
+              <td>{{ libro.numPaginas }}</td>
+              <td>{{ libro.isbn }}</td>
+              <td>{{ libro.autor }}</td>
+              <td>{{ libro.editorial }}</td>
+              <td>
+                <div>
+                  <button (click)="remove(libro._id || '')" class="btn btn-danger btn-sm">Eliminar</button> &nbsp;
+                  <button (click)="setSelectedToUpdateLibro(libro)" class="btn btn-warning btn-sm text-white">
+                    Editar
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <app-example></app-example>
+    </div>
+  </div>
+</div>
+<!-- <router-outlet></router-outlet> -->
