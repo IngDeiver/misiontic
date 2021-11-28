@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   constructor(private libroService: LibroService) {}
 
   ngOnInit(): void {
-    this.list();
+    //this.list();
   }
 
   title = 'practica-web-client';
