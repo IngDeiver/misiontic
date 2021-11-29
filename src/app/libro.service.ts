@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Libro } from './LIbro';
 import { HttpHeaders } from '@angular/common/http';
-const BASE_URL = "http://localhost:3000/api"
+const BASE_URL = "https://misiontic22.herokuapp.com/api"
 
 @Injectable({
   providedIn: 'root'
